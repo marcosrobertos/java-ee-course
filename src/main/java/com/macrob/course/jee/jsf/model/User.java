@@ -1,4 +1,4 @@
-package com.mroberto.course.jee.model;
+package com.macrob.course.jee.jsf.model;
 
 import java.io.Serializable;
 import java.util.Date;

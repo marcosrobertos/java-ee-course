@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mroberto.course.jee.util;
+package com.macrob.course.jee.util;
 
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mroberto.course.jee.cotroller;
+package com.macrob.course.jee.jsf.controller;
 
-import com.mroberto.course.jee.model.User;
+import com.macrob.course.jee.jsf.model.User;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;

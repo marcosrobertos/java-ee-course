@@ -1,4 +1,4 @@
-package com.mroberto.course.jee.cotroller;
+package com.macrob.course.jee.jsf.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

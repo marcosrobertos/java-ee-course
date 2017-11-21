@@ -1,11 +1,10 @@
-package com.mroberto.course.jee.cotroller;
+package com.macrob.course.jee.jsf.controller;
 
-import com.mroberto.course.jee.model.User;
+import com.macrob.course.jee.jsf.model.User;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
 import org.apache.log4j.Logger;
 
