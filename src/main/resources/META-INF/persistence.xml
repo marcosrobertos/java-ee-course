@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
-             version="2.0">
-
-    <persistence-unit name="applicationTopPOSPU" transaction-type="JTA">
-        <jta-data-source>java:jboss/datasources/TopPOSDS</jta-data-source>
-        <properties>
-            <!-- Properties for EclipseLink -->
-            <property name="eclipselink.target-database" value="DERBY"/>
-            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-            <property name="eclipselink.logging.level" value="INFO"/>
-
-            <!-- Properties for Hibernate -->
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>-->
-
-            <!-- openjpa -->
-            <!--<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/> -->
-            <!--<property name="openjpa.Log" value="SQL=TRACE"/>-->
-            <!--<property name="openjpa.ConnectionFactoryProperties" value="printParameters=true"/>-->
-        </properties>
-    </persistence-unit>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="JeeCoursePU" transaction-type="JTA">
+      <jta-data-source>java:jboss/datasources/JeeCourseDS</jta-data-source>
+    <properties>
+        <!-- Properties for EclipseLink -->
+        <property name="eclipselink.target-database" value="DERBY"/>
+        <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+        <property name="eclipselink.logging.level" value="INFO"/>
+        <!-- Properties for Hibernate -->
+        <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="true"/>
+        <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="hibernate.show_sql" value="false"/>-->
+        <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/atn_db?autoReconnect=true"/>-->
+        <!--<property name="hibernate.connection.username" value="automaton"/>-->
+        <!--<property name="hibernate.connection.password" value="ATNRh!sc0m1998"/>-->
+        <!--<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>-->
+        <!-- openjpa -->
+        <!--<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/> -->
+        <!--<property name="openjpa.Log" value="SQL=TRACE"/>-->
+        <!--<property name="openjpa.ConnectionFactoryProperties" value="printParameters=true"/>-->
+    </properties>
+  </persistence-unit>
 </persistence>

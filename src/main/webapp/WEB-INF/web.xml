@@ -17,12 +17,25 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+    <!--Blusky theme for PrimeFaces -->
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>bluesky</param-value>
+    </context-param>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>faces/register.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>
