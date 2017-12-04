@@ -1,20 +1,28 @@
 package com.macrob.course.jee.jsf.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
+import javax.persistence.Temporal;
+import org.apache.log4j.Logger;
 
 /**
  * @author Roberto
  *
  */
 @Entity
-public class User implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class UserBean implements Serializable {
+    private static final Logger logger = Logger.getLogger(UserBean.class);
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String userName;
     private String password;
@@ -22,19 +30,22 @@ public class User implements Serializable {
     private String lastName;
     private String email;
     private String phone;
+    private String sex;
+	 @Temporal(javax.persistence.TemporalType.DATE)
     private Date dob;
 
-    public User() {
+    public UserBean() {
+        logger.debug("creating a userbean object");
     }
 
-    public User(Integer id, String userName, String password, String firstName) {
+    public UserBean(Integer id, String userName, String password, String firstName) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
     }
 
-    public User(Integer id, String userName, String password, String firstName,
+    public UserBean(Integer id, String userName, String password, String firstName,
             String lastName, String email, String phone, Date dob) {
         this.id = id;
         this.userName = userName;
@@ -116,6 +127,48 @@ public class User implements Serializable {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+    protected String serviceLevel = "medium";
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getServiceLevel() {
+        return serviceLevel;
+    }
+
+    public void setServiceLevel(String serviceLevel) {
+        this.serviceLevel = serviceLevel;
+    }
+
+    public void validateEmail(FacesContext context,
+            UIComponent toValidate,
+            Object value) throws ValidatorException {
+        String emailStr = (String) value;
+        if (-1 == emailStr.indexOf("@")) {
+            FacesMessage message = new FacesMessage("Invalid email address");
+            throw new ValidatorException(message);
+        }
+    }
+
+    public String addConfirmedUser() {
+        boolean added = true; // actual application may fail to add user
+        FacesMessage doneMessage = null;
+        String outcome = null;
+        if (added) {
+            doneMessage = new FacesMessage("Successfully added new user");
+            outcome = "done";
+        } else {
+            doneMessage = new FacesMessage("Failed to add new user");
+            outcome = "register";
+        }
+        FacesContext.getCurrentInstance().addMessage(null, doneMessage);
+        return outcome;
     }
 
 }

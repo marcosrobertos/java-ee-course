@@ -1,45 +1,49 @@
 package com.macrob.course.jee.jsf.controller;
 
-import com.macrob.course.jee.jsf.model.User;
-import javax.enterprise.inject.Model;
+import com.macrob.course.jee.jsf.model.UserBean;
+import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
+import javax.inject.Named;
 import org.apache.log4j.Logger;
 
 /**
  * @author Siva
  *
  */
-@Model
-public class UserController {
-
+@Named
+@SessionScoped
+public class UserController implements Serializable {
+    
     @Inject
     private UserService userService;
     
-    private static final Logger logger = Logger.getLogger(UserController.class);
+    private static final Logger LOGGER = Logger.getLogger(UserController.class);
     
-    private User loginUser = new User();
-    private User registrationUser = new User();
+    private UserBean loginUser = new UserBean();
+    private UserBean registrationUser = new UserBean();
     private String loginStatus;
     
     public UserController() {
+		 LOGGER.debug("creating an instance of UserController");
+//		 userService = new UserService();
     }
     
-    public User getLoginUser() {
+    public UserBean getLoginUser() {
         return loginUser;
     }
     
-    public void setLoginUser(User loginUser) {
+    public void setLoginUser(UserBean loginUser) {
         this.loginUser = loginUser;
     }
     
-    public User getRegistrationUser() {
+    public UserBean getRegistrationUser() {
         return registrationUser;
     }
     
-    public void setRegistrationUser(User registrationUser) {
+    public void setRegistrationUser(UserBean registrationUser) {
         this.registrationUser = registrationUser;
     }
 
@@ -58,14 +62,14 @@ public class UserController {
     }
     
     public String register() {
-        logger.info("Registering User :" + this.registrationUser);
+        LOGGER.info("Registering User :" + this.registrationUser);
         String msg = "User Registered Successfully";
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
         return null;        
     }
     
     public String doRegister() {
-        logger.info("Registering User :" + this.registrationUser);
+        LOGGER.info("Registering User :" + this.registrationUser);
         String msg = "User Registered Successfully";
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
         FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
@@ -82,14 +86,14 @@ public class UserController {
     }
     
     public String updateUser() {
-        logger.info("Updating User Id: " + this.loginUser.getId());
+        LOGGER.info("Updating User Id: " + this.loginUser.getId());
         String msg = "User updated Successfully";
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
         return "userDetails.jsf";
     }
     
     public String deleteUser() {
-        logger.info("deleting User Id: " + this.loginUser.getId());
+        LOGGER.info("deleting User Id: " + this.loginUser.getId());
         String msg = "User deleted Successfully";
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
         return "userDetails.jsf";
@@ -109,6 +113,22 @@ public class UserController {
     }
     
     public void saveUser() {
-        userService.addUser(registrationUser);
+//        userService.addUser(registrationUser);
     }
+	 
+	public String addConfirmedUser() {
+		boolean added = true; // actual application may fail to add user
+		userService.addUser(loginUser);
+		FacesMessage doneMessage = null;
+		String outcome = null;
+		if (added) {
+			doneMessage = new FacesMessage("Successfully added new user");
+			outcome = "done";
+		} else {
+			doneMessage = new FacesMessage("Failed to add new user");
+			outcome = "register";
+		}
+		FacesContext.getCurrentInstance().addMessage(null, doneMessage);
+		return outcome;
+	}
 }
