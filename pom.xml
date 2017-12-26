@@ -8,7 +8,7 @@
     <packaging>war</packaging>
 
     <name>java-ee-course</name>
-
+<!-- add comments -->
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
