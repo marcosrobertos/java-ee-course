@@ -26,10 +26,12 @@
         <param-value>client</param-value>
     </context-param>
     <!--Blusky theme for PrimeFaces -->
+    <!--
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>bluesky</param-value>
     </context-param>
+    -->
     <session-config>
         <session-timeout>
             30

@@ -1,6 +1,6 @@
 package com.macrob.course.jee.jsf.controller;
 
-import com.macrob.course.jee.jsf.model.UserBean;
+import com.macrob.course.jee.jsf.model.UserInfo;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -22,8 +22,8 @@ public class UserController implements Serializable {
     
     private static final Logger LOGGER = Logger.getLogger(UserController.class);
     
-    private UserBean loginUser = new UserBean();
-    private UserBean registrationUser = new UserBean();
+    private UserInfo loginUser = new UserInfo();
+    private UserInfo registrationUser = new UserInfo();
     private String loginStatus;
     
     public UserController() {
@@ -31,19 +31,19 @@ public class UserController implements Serializable {
 //		 userService = new UserService();
     }
     
-    public UserBean getLoginUser() {
+    public UserInfo getLoginUser() {
         return loginUser;
     }
     
-    public void setLoginUser(UserBean loginUser) {
+    public void setLoginUser(UserInfo loginUser) {
         this.loginUser = loginUser;
     }
     
-    public UserBean getRegistrationUser() {
+    public UserInfo getRegistrationUser() {
         return registrationUser;
     }
     
-    public void setRegistrationUser(UserBean registrationUser) {
+    public void setRegistrationUser(UserInfo registrationUser) {
         this.registrationUser = registrationUser;
     }
 

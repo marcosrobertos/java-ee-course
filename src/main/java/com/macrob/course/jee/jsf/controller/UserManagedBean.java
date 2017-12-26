@@ -1,28 +1,29 @@
-package com.macrob.course.jee.jsf.model;
+package com.macrob.course.jee.jsf.controller;
 
+import com.macrob.course.jee.jsf.model.UserInfo;
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
-import javax.persistence.Temporal;
+import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
 /**
  * @author Roberto
  *
  */
-@Entity
-public class UserBean implements Serializable {
-    private static final Logger logger = Logger.getLogger(UserBean.class);
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+@ManagedBean
+@SessionScoped
+public class UserManagedBean implements Serializable {
+    private static final Logger logger = Logger.getLogger(UserManagedBean.class);
+	 
+	 @Inject
+	 private UserService userService;
+	 //attributes for acces from jsf need mandatory getter and setter 
     private Integer id;
     private String userName;
     private String password;
@@ -31,21 +32,21 @@ public class UserBean implements Serializable {
     private String email;
     private String phone;
     private String sex;
-	 @Temporal(javax.persistence.TemporalType.DATE)
     private Date dob;
+	 private UserInfo loginUser = new UserInfo();
 
-    public UserBean() {
+    public UserManagedBean() {
         logger.debug("creating a userbean object");
     }
 
-    public UserBean(Integer id, String userName, String password, String firstName) {
+    public UserManagedBean(Integer id, String userName, String password, String firstName) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
     }
 
-    public UserBean(Integer id, String userName, String password, String firstName,
+    public UserManagedBean(Integer id, String userName, String password, String firstName,
             String lastName, String email, String phone, Date dob) {
         this.id = id;
         this.userName = userName;
@@ -158,6 +159,8 @@ public class UserBean implements Serializable {
 
     public String addConfirmedUser() {
         boolean added = true; // actual application may fail to add user
+		  userService.addUser(getLoginUser());
+		  
         FacesMessage doneMessage = null;
         String outcome = null;
         if (added) {
@@ -170,5 +173,19 @@ public class UserBean implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, doneMessage);
         return outcome;
     }
+
+	/**
+	 * @return the loginUser
+	 */
+	public UserInfo getLoginUser() {
+		return loginUser;
+	}
+
+	/**
+	 * @param loginUser the loginUser to set
+	 */
+	public void setLoginUser(UserInfo loginUser) {
+		this.loginUser = loginUser;
+	}
 
 }

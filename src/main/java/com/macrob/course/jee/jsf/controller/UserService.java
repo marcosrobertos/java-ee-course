@@ -5,7 +5,7 @@
  */
 package com.macrob.course.jee.jsf.controller;
 
-import com.macrob.course.jee.jsf.model.UserBean;
+import com.macrob.course.jee.jsf.model.UserInfo;
 import java.io.Serializable;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
@@ -27,7 +27,7 @@ public class UserService implements Serializable {
 	public UserService(){
 	}
 
-	public void addUser(UserBean user) {
+	public void addUser(UserInfo user) {
 		try {
 			userTransaction.begin();
 			em.persist(user);

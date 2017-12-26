@@ -15,7 +15,7 @@
                     <td>User Name:</td>
                     <td>
                         <h:inputText label="User Name"
-                                     id="uname" value="#{userController.loginUser.userName}"
+                                     id="uname" value="#{userManagedBean.loginUser.email}"
                                      required="true"/>
                         <h:message for="uname" />
                     </td>
@@ -24,7 +24,7 @@
                     <td>First Name:</td>
                     <td>
                         <h:inputText label="User Password"
-                                     id="upassword" value="#{userController.loginUser.password}"
+                                     id="upassword" value="#{userManagedBean.loginUser.password}"
                                      required="true"/>
                         <h:message for="upassword" />
                     </td>
@@ -33,7 +33,7 @@
                     <td>First Name:</td>
                     <td>
                         <h:inputText label="First Name"
-                                     id="fname" value="#{userController.loginUser.firstName}"
+                                     id="fname" value="#{userManagedBean.loginUser.firstName}"
                                      required="true"/>
                         <h:message for="fname" />
                     </td>
@@ -42,7 +42,7 @@
                     <td>Last Name:</td>
                     <td>
                         <h:inputText label="Last Name"
-                                     id="lname" value="#{userController.loginUser.lastName}"
+                                     id="lname" value="#{userManagedBean.loginUser.lastName}"
                                      required="true"/>
                         <h:message for="lname" />
                     </td>
@@ -51,7 +51,7 @@
                     <td>Sex:</td>
                     <td>
                         <h:selectOneRadio label="Sex"
-                                          id="sex" value="#{userController.loginUser.sex}"
+                                          id="sex" value="#{userManagedBean.loginUser.sex}"
                                           required="true">
                             <f:selectItem itemLabel="Male" itemValue="male" />
                             <f:selectItem itemLabel="Female" itemValue="female" />
@@ -63,7 +63,7 @@
                     <td>Date of Birth:</td>
                     <td>
                         <h:inputText label="Date of Birth"
-                                     id="dob" value="#{userController.loginUser.dob}" required="true">
+                                     id="dob" value="#{userManagedBean.loginUser.dob}" required="true">
                             <f:convertDateTime pattern="MM-dd-yy" />
                         </h:inputText> (mm-dd-yy)
                         <h:message for="dob" />
@@ -73,9 +73,9 @@
                     <td>Email Address:</td>
                     <td>
                         <h:inputText label="Email Address"
-                                     id="email" value="#{userController.loginUser.email}"
+                                     id="email" value="#{userManagedBean.loginUser.email}"
                                      required="true"
-                                     validator="#{userController.loginUser.validateEmail}"/>
+                                     validator="#{userManagedBean.loginUser.validateEmail}"/>
                         <h:message for="email" />
                     </td>
                 </tr>
@@ -83,7 +83,7 @@
                     <td>Service Level:</td>
                     <td>
                         <h:selectOneMenu label="Service Level"
-                                         value="#{userController.loginUser.serviceLevel}">
+                                         value="#{userManagedBean.loginUser.serviceLevel}">
                             <f:selectItem itemLabel="Medium" itemValue="medium" />
                             <f:selectItem itemLabel="Basic" itemValue="basic" />
                             <f:selectItem itemLabel="Premium" itemValue="premium" />

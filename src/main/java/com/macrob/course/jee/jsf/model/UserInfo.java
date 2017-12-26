@@ -18,8 +18,8 @@ import org.apache.log4j.Logger;
  *
  */
 @Entity
-public class UserBean implements Serializable {
-    private static final Logger logger = Logger.getLogger(UserBean.class);
+public class UserInfo implements Serializable {
+    private static final Logger LOGGER = Logger.getLogger(UserInfo.class);
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,18 +34,18 @@ public class UserBean implements Serializable {
 	 @Temporal(javax.persistence.TemporalType.DATE)
     private Date dob;
 
-    public UserBean() {
-        logger.debug("creating a userbean object");
+    public UserInfo() {
+        LOGGER.debug("creating a userbean object");
     }
 
-    public UserBean(Integer id, String userName, String password, String firstName) {
+    public UserInfo(Integer id, String userName, String password, String firstName) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
     }
 
-    public UserBean(Integer id, String userName, String password, String firstName,
+    public UserInfo(Integer id, String userName, String password, String firstName,
             String lastName, String email, String phone, Date dob) {
         this.id = id;
         this.userName = userName;

@@ -14,43 +14,43 @@
                 <tr>
                     <td>First Name:</td>
                     <td>
-                        <h:outputText value="#{userController.loginUser.firstName}"/>
+                        <h:outputText value="#{userManagedBean.loginUser.firstName}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Last Name:</td>
                     <td>
-                        <h:outputText value="#{userController.loginUser.lastName}"/>
+                        <h:outputText value="#{userManagedBean.loginUser.lastName}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Sex:</td>
                     <td>
-                        <h:outputText value="#{userController.loginUser.sex}"/>
+                        <h:outputText value="#{userManagedBean.loginUser.sex}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Date of Birth:</td>
                     <td>
-                        <h:outputText value ="#{userController.loginUser.dob}"/>
+                        <h:outputText value ="#{userManagedBean.loginUser.dob}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Email Address:</td>
                     <td>
-                        <h:outputText value="#{userController.loginUser.email}"/>
+                        <h:outputText value="#{userManagedBean.loginUser.email}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Service Level:</td>
                     <td>
-                        <h:outputText value="#{userController.loginUser.serviceLevel}"/>
+                        <h:outputText value="#{userManagedBean.loginUser.serviceLevel}"/>
                     </td>
                 </tr>
             </table>
             <p><h:messages /></p>
             <p><h:commandButton value="Edit" action="register" /></p>
-            <p><h:commandButton value="Confirm" action="#{userController.addConfirmedUser()}" /></p>
+            <p><h:commandButton value="Confirm" action="#{userManagedBean.addConfirmedUser()}" /></p>
         </h:form>
     </h:body>
 </html>
