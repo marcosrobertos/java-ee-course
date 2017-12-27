@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
@@ -9,47 +9,45 @@
     <h:body>
         <h:form>
             <h2>JSF Registration App</h2>
-            <h4>Registration Confirmation</h4>
+            <h4>Registration Form</h4>
             <table>
                 <tr>
                     <td>First Name:</td>
                     <td>
-                        <h:outputText value="#{userManagedBean.loginUser.firstName}"/>
+                        <h:outputText value="#{userBean.firstName}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Last Name:</td>
                     <td>
-                        <h:outputText value="#{userManagedBean.loginUser.lastName}"/>
+                        <h:outputText value="#{userBean.lastName}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Sex:</td>
                     <td>
-                        <h:outputText value="#{userManagedBean.loginUser.sex}"/>
+                        <h:outputText value="#{userBean.sex}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Date of Birth:</td>
                     <td>
-                        <h:outputText value ="#{userManagedBean.loginUser.dob}"/>
+                        <h:outputText value="#{userBean.dob}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Email Address:</td>
                     <td>
-                        <h:outputText value="#{userManagedBean.loginUser.email}"/>
+                        <h:outputText value="#{userBean.email}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Service Level:</td>
                     <td>
-                        <h:outputText value="#{userManagedBean.loginUser.serviceLevel}"/>
+                        <h:outputText value="#{userBean.serviceLevel}"/>
                     </td>
                 </tr>
             </table>
-            <p><h:messages /></p>
         </h:form>
     </h:body>
 </html>
-

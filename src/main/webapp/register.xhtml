@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
@@ -12,28 +12,10 @@
             <h4>Registration Form</h4>
             <table>
                 <tr>
-                    <td>User Name:</td>
-                    <td>
-                        <h:inputText label="User Name"
-                                     id="uname" value="#{userManagedBean.loginUser.email}"
-                                     required="true"/>
-                        <h:message for="uname" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>First Name:</td>
-                    <td>
-                        <h:inputText label="User Password"
-                                     id="upassword" value="#{userManagedBean.loginUser.password}"
-                                     required="true"/>
-                        <h:message for="upassword" />
-                    </td>
-                </tr>
-                <tr>
                     <td>First Name:</td>
                     <td>
                         <h:inputText label="First Name"
-                                     id="fname" value="#{userManagedBean.loginUser.firstName}"
+                                     id="fname" value="#{userBean.firstName}"
                                      required="true"/>
                         <h:message for="fname" />
                     </td>
@@ -42,7 +24,7 @@
                     <td>Last Name:</td>
                     <td>
                         <h:inputText label="Last Name"
-                                     id="lname" value="#{userManagedBean.loginUser.lastName}"
+                                     id="lname" value="#{userBean.lastName}"
                                      required="true"/>
                         <h:message for="lname" />
                     </td>
@@ -51,7 +33,7 @@
                     <td>Sex:</td>
                     <td>
                         <h:selectOneRadio label="Sex"
-                                          id="sex" value="#{userManagedBean.loginUser.sex}"
+                                          id="sex" value="#{userBean.sex}"
                                           required="true">
                             <f:selectItem itemLabel="Male" itemValue="male" />
                             <f:selectItem itemLabel="Female" itemValue="female" />
@@ -63,7 +45,7 @@
                     <td>Date of Birth:</td>
                     <td>
                         <h:inputText label="Date of Birth"
-                                     id="dob" value="#{userManagedBean.loginUser.dob}" required="true">
+                                     id="dob" value="#{userBean.dob}" required="true">
                             <f:convertDateTime pattern="MM-dd-yy" />
                         </h:inputText> (mm-dd-yy)
                         <h:message for="dob" />
@@ -73,9 +55,9 @@
                     <td>Email Address:</td>
                     <td>
                         <h:inputText label="Email Address"
-                                     id="email" value="#{userManagedBean.loginUser.email}"
+                                     id="email" value="#{userBean.email}"
                                      required="true"
-                                     validator="#{userManagedBean.loginUser.validateEmail}"/>
+                                     validator="#{userBean.validateEmail}"/>
                         <h:message for="email" />
                     </td>
                 </tr>
@@ -83,7 +65,7 @@
                     <td>Service Level:</td>
                     <td>
                         <h:selectOneMenu label="Service Level"
-                                         value="#{userManagedBean.loginUser.serviceLevel}">
+                                         value="#{userBean.serviceLevel}">
                             <f:selectItem itemLabel="Medium" itemValue="medium" />
                             <f:selectItem itemLabel="Basic" itemValue="basic" />
                             <f:selectItem itemLabel="Premium" itemValue="premium" />
@@ -96,4 +78,3 @@
         </h:form>
     </h:body>
 </html>
-
