@@ -5,35 +5,38 @@
       xmlns:p="http://primefaces.org/ui">
 <f:view contentType="text/html">
 <h:head>
-	<title>PrimeFaces Beginner's Guide : Chapter-01</title>
+	<title>Autotal Backend</title>
 	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
 </h:head> 
 <body> 
-	<h2>PrimeFaces Beginner's Guide : Chapter-01</h2>
+	<h2>Autotal Backend</h2>
 	<h:form>
 		
-		<p:panel header="PrimeFaces Beginner's Guide : Chapter-01 Demos" style="width: 800px;">
-			<h:panelGrid columns="1">
-				<p><h:link outcome="helloworld.jsf" value="Hello World"/> </p>
-				
-				<p><h:link outcome="registration.jsf" value="User Registration Form with PrimeFaces Components"/> </p>
-				
-				<p><h:link outcome="registrationWithVal.jsf" value="User Registration with Validations"/> </p>
-				
-				<p><h:link outcome="clientValidation.jsf" value="Client Side Validation"/> </p>
-				
-				<p><h:link outcome="userDetails.jsf" value="Partial Processing"/> </p>
-				
-				<p><h:link outcome="login.jsf" value="Updating View using Ajax"/> </p>
-				
-				<p><h:link outcome="viewAjaxListener.jsf" value="Updating View using Ajax Listener"/> </p>
-				
-				<p><h:link outcome="poll.jsf" value="Polling"/> </p>
-				
-				<p><h:link outcome="remoteCommand.jsf" value="Remote Command"/> </p>
+            <p:panel header="Welcome to Autotal Backend" style="width: 800px;">
+                <h:panelGrid columns="1">
+                    <p:dataTable id="singleDT" var="customer" value="#{userBean.userInfoList}" selectionMode="single" selection="#{userBean.selectedUser}" rowKey="#{customer.id}">
+                        <f:facet name="header">
+                            Single with Row Click
+                        </f:facet>
+                        <p:column headerText="Id">
+                            <h:outputText value="#{customer.id}" />
+                        </p:column>
+                        <p:column headerText="First Name">
+                            <h:outputText value="#{customer.firstName}" />
+                        </p:column>
+                        <p:column headerText="Last Name">
+                            <h:outputText value="#{customer.lastName}" />
+                        </p:column>
+                        <p:column headerText="Email">
+                            <h:outputText value="#{customer.email}" />
+                        </p:column>
+                        <f:facet name="footer">
+                        </f:facet>
+                    </p:dataTable>
 				
 			</h:panelGrid>
 		</p:panel>
+            <h:commandButton value="New Customer" action="#{userBean.addNewUser()}" />
 	</h:form>
 </body> 
 </f:view>

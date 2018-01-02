@@ -145,30 +145,4 @@ public class UserInfo implements Serializable {
     public void setServiceLevel(String serviceLevel) {
         this.serviceLevel = serviceLevel;
     }
-
-    public void validateEmail(FacesContext context,
-            UIComponent toValidate,
-            Object value) throws ValidatorException {
-        String emailStr = (String) value;
-        if (-1 == emailStr.indexOf("@")) {
-            FacesMessage message = new FacesMessage("Invalid email address");
-            throw new ValidatorException(message);
-        }
-    }
-
-    public String addConfirmedUser() {
-        boolean added = true; // actual application may fail to add user
-        FacesMessage doneMessage = null;
-        String outcome = null;
-        if (added) {
-            doneMessage = new FacesMessage("Successfully added new user");
-            outcome = "done";
-        } else {
-            doneMessage = new FacesMessage("Failed to add new user");
-            outcome = "register";
-        }
-        FacesContext.getCurrentInstance().addMessage(null, doneMessage);
-        return outcome;
-    }
-
 }
