@@ -1,14 +1,41 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <meta charset="UTF-8"/>
+        <title>Autotal Login</title>
+        <link rel="stylesheet" href="resources/css/styles.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <div class="login">
+            <h3 style="text-align:center">Autotal</h3>
+            <h3 style=" text-align:center">Inicio de sesión</h3>
+            <h:form>
+                <table>
+                    <thead>
+                        <tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label>Usuario</label></td>
+                            <td><p:inputText  id="Nombre" placeholder="Escribe tu nombre"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Clave</label></td>
+                            <td><p:inputText type="password" id="Pass" placeholder="Escribe tu Clave"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="align-content: center" >
+                    <h:commandButton value="Ingresar"/>
+                </div>
+            </h:form>
+        </div>
         <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
     </h:body>
 </html>
-
