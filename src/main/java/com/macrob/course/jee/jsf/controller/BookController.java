@@ -64,6 +64,7 @@ public class BookController {
 	 * @return the bookList
 	 */
 	public List<Book> getBookList() {
+		System.out.println("getBookList");
 		return bookList;
 	}
 
